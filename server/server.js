@@ -1,5 +1,5 @@
-import express from 'express';
-import mongoose from 'mongoose';
+const express = require('express')
+const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
 const budgetRoutes = require('./routes/budget')
 
@@ -15,11 +15,11 @@ app.use('/api/user', userRoutes)
 app.use('/api/budget', budgetRoutes)
 
 // connect to db (need to get url has not been put in .env yet)
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://budget:budget1234@budgetapp.bjjxed5.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     // listen for requests
     app.listen(process.env.PORT, () => {
-      console.log('connected to db & listening on port', process.env.PORT)
+      console.log('connected to db & listening')
     })
   })
   .catch((error) => {
