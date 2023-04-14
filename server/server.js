@@ -4,6 +4,7 @@ const userRoutes = require('./routes/user')
 const budgetRoutes = require('./routes/budget')
 
 const app = express();
+const PORT = 4000;
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)
@@ -18,8 +19,8 @@ app.use('/api/budget', budgetRoutes)
 mongoose.connect("mongodb+srv://budget:budget1234@budgetapp.bjjxed5.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     // listen for requests
-    app.listen(process.env.PORT, () => {
-      console.log('connected to db & listening')
+    app.listen(PORT, () => {
+      console.log('connected to db & listening on port', PORT);
     })
   })
   .catch((error) => {
