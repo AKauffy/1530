@@ -12,6 +12,8 @@ import {
     QueryClient,
     QueryClientProvider,
 } from "@tanstack/react-query";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 //--------------Providers----------------
 
@@ -24,6 +26,8 @@ const router = createBrowserRouter([
         path: "/spending",
         element: <Spending />,
     },
+    { path: "/login", element: <Login /> },
+    { path: "/signup", element: <Signup /> },
 ]);
 
 const queryClient = new QueryClient();
