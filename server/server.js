@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
 const budgetRoutes = require('./routes/budget')
 
+
 const app = express();
+app.use(express.json())
 const PORT = 4000;
 
 app.use((req, res, next) => {
