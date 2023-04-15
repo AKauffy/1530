@@ -2,8 +2,7 @@ const Budget = require('../models/budgetModel')
 const mongoose = require('mongoose')
 
 const getBudgets = async (req, res) => {
-    const { user_id } = req.params
-    const budgets = await Budget.find({user_id})
+    const budgets = await Budget.find()
 
     res.status(200).json(budgets)
 }
@@ -34,14 +33,14 @@ const createBudget = async (req, res) => {
     emptyFields.push('title')
   }
   if(!amount) {
-    emptyFields.push('load')
+    emptyFields.push('amount')
   }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
   }
 
   try {
-    const budget = await Budget.create({title, amount, user_id})
+    const budget = await Budget.create({title, Amount: amount, user_id})
     res.status(200).json(budget)
   } catch (error) {
     res.status(400).json({error: error.message})
