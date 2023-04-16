@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import { useEffect, useState } from "react";
 
 const Home = () => {
     return (

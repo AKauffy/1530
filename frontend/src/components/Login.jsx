@@ -27,6 +27,8 @@ export default function Login() {
             body: JSON.stringify(request),
         }).then((response) => {
             if (response.status === 200) {
+                console.log(response, response.data);
+                localStorage.setItem("user", true);
                 window.location.href = "/spending";
             } else {
                 response.json().then((data) => {

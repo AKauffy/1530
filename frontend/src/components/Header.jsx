@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -11,6 +11,23 @@ const navigation = [
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [user, setUser] = useState(false);
+
+    useEffect(() => {
+        console.log(localStorage);
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            // const foundUser = JSON.parse(loggedInUser);
+            console.log("LOgged in ", loggedInUser);
+            setUser(true);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        console.log("HERE");
+        localStorage.setItem("user", "false");
+        setUser(false);
+    };
 
     return (
         <header className="bg-gray-900">
@@ -50,12 +67,28 @@ const Header = () => {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a
+                    {/* <a
                         href="/login"
                         className="text-sm font-semibold leading-6 text-white"
                     >
                         Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
+                    </a> */}
+                    {localStorage.getItem("user") === "true" ? (
+                        <a
+                            href="/"
+                            className="text-sm font-semibold leading-6 text-white"
+                            onClick={handleLogout}
+                        >
+                            Log out <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    ) : (
+                        <a
+                            href="/login"
+                            className="text-sm font-semibold leading-6 text-white"
+                        >
+                            Log in <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    )}
                 </div>
             </nav>
             <Dialog
