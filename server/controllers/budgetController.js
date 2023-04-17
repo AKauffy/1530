@@ -24,7 +24,7 @@ const getBudget = async (req, res) => {
 };
 
 const createBudget = async (req, res) => {
-    const { title, amount, user_id } = req.body;
+    const { title, amount, spent, user_id } = req.body;
 
     let emptyFields = [];
 
@@ -39,9 +39,12 @@ const createBudget = async (req, res) => {
             .status(400)
             .json({ error: "Please fill in all the fields", emptyFields });
     }
+    if(!spent) {
+        noSpent = 0;
+    }
 
     try {
-        const budget = await Budget.create({ title, Amount: amount, user_id });
+        const budget = await Budget.create({ title, Amount: amount, spent: noSpent, user_id });
         res.status(200).json(budget);
     } catch (error) {
         res.status(400).json({ error: error.message });

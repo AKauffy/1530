@@ -9,19 +9,19 @@ const {
 
 const router = express.Router();
 
-// GET all workouts
+// GET all budget
 router.get("/", getBudgets);
 
-//GET a single workout
+//GET a single budget
 router.get("/:id", getBudget);
 
-// POST a new workout
+// POST a new budget
 router.post("/", createBudget);
 
-// DELETE a workout
+// DELETE a budget
 router.delete("/:id", deleteBudget);
 
-// UPDATE a workout
+// UPDATE a budget
 router.patch("/:id", updateBudget);
 
 module.exports = router;
