@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
     { name: "Spending", href: "spending" },
-    { name: "Budget", href: "#" },
+    { name: "Budget", href: "budget" },
     { name: "Income", href: "#" },
     { name: "Analysis", href: "#" },
 ];
@@ -73,7 +73,7 @@ const Header = () => {
                     >
                         Log in <span aria-hidden="true">&rarr;</span>
                     </a> */}
-                    {localStorage.getItem("user") === "true" ? (
+                    {localStorage.getItem("user") !== "false" ? (
                         <a
                             href="/"
                             className="text-sm font-semibold leading-6 text-white"

@@ -22,7 +22,7 @@ export default function Signup() {
             body: JSON.stringify(request),
         }).then((response) => {
             if (response.status === 200) {
-                localStorage.setItem("user", response.data);
+                localStorage.setItem("user", response.data.email);
                 window.location.href = "/spending";
             } else {
                 response.json().then((data) => {

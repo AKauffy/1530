@@ -17,7 +17,6 @@ export default function Login() {
         e.preventDefault();
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        console.log(email, password);
         const request = { email: email, password: password };
         const response = fetch("/api/api/user/login", {
             method: "POST",
@@ -27,9 +26,11 @@ export default function Login() {
             body: JSON.stringify(request),
         }).then((response) => {
             if (response.status === 200) {
-                console.log(response, response.data);
-                localStorage.setItem("user", true);
-                window.location.href = "/spending";
+                response = response.json().then((data) => {
+                    console.log(data);
+                    localStorage.setItem("user", data.email);
+                    window.location.href = "/spending";
+                });
             } else {
                 response.json().then((data) => {
                     if (data.error == "Incorrect password") {

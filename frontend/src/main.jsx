@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import Home from "./Home";
-import Spending from "./components/Spending";
+import Budget from "./components/Budget";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
@@ -14,6 +14,7 @@ import {
 } from "@tanstack/react-query";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import NewBudget from "./components/NewBudget";
 
 //--------------Providers----------------
 
@@ -23,11 +24,12 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/spending",
-        element: <Spending />,
+        path: "/budget",
+        element: <Budget />,
     },
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <Signup /> },
+    { path: "/newbudget", element: <NewBudget /> },
 ]);
 
 const queryClient = new QueryClient();
