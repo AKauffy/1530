@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
 const budgetRoutes = require("./routes/budget");
+const spendingRoutes = require("./routes/spending")
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 //routes
 app.use("/api/user", userRoutes);
 app.use("/api/budget", budgetRoutes);
+app.use("/api/spending", spendingRoutes);
 
 // connect to db (need to get url has not been put in .env yet)
 mongoose
