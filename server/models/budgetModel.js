@@ -11,6 +11,9 @@ const budgetSchema = new Schema ({
         type: Number,
         required: true
     },
+    spent: {
+        type: Number,
+    },
     user_id: {
         type: String,
         required: true
