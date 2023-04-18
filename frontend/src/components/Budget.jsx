@@ -80,12 +80,20 @@ const Budget = () => {
                 className="overflow-auto bg-white max-w-4xl mx-auto rounded-md p-4 sm:p-6 lg:p-8"
                 style={{ maxHeight: 800 }}
             >
-                {budget?.length === 0 ||
-                    (budget === null && (
-                        <div>
-                            No Budget Found! Would you like to create one?
-                        </div>
-                    ))}
+                {budget?.length === 0 && (
+                    <div className="font-lg">
+                        No budgets Found! Would you like to create one?
+                        <button
+                            type="button"
+                            className="block font-md rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            onClick={() =>
+                                (window.location.href = "/newbudget")
+                            }
+                        >
+                            Create a new budget
+                        </button>
+                    </div>
+                )}
                 {budget?.length > 0 && (
                     <>
                         <div className="sm:flex sm:items-center">

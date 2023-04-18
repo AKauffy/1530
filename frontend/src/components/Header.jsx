@@ -5,8 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 const navigation = [
     { name: "Spending", href: "spending" },
     { name: "Budget", href: "budget" },
-    { name: "Income", href: "#" },
-    { name: "Analysis", href: "#" },
+    { name: "Analysis", href: "analysis" },
 ];
 
 const Header = () => {
