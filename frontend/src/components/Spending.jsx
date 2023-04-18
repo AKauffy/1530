@@ -115,20 +115,22 @@ const Spending = () => {
                 className="overflow-auto bg-white max-w-4xl mx-auto rounded-md p-4 sm:p-6 lg:p-8"
                 style={{ maxHeight: 800 }}
             >
-                {spending?.length === 0 && (
+
+                {spending?.length == 0 || spending == undefined && (
                     <div className="font-lg">
                         No expense Found! Would you like to create one?
-                        <button
+                        
+                    </div>
+                )}
+                <button
                             type="button"
-                            className="block font-md rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="block mb-8 font-md rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             onClick={() =>
                                 (window.location.href = "/newspending")
                             }
                         >
                             Create a new expense
                         </button>
-                    </div>
-                )}
                 {spending?.length > 0 && (
                     <>
                         <div className="sm:flex sm:items-center">
@@ -137,19 +139,8 @@ const Spending = () => {
                                     Expense
                                 </h1>
                             </div>
-                            <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                                <button
-                                    type="button"
-                                    className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    onClick={() =>
-                                        (window.location.href = "/newspending")
-                                    }
-                                >
-                                    Create a new expense
-                                </button>
-                            </div>
                         </div>
-                        <div className="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
+                        <div className="-mx-4 mt-2 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
                             <table className="min-w-full divide-y divide-gray-300 ">
                                 <thead>
                                     <tr>

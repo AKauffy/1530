@@ -43,11 +43,13 @@ const Home = () => {
         <div className="bg-gray-900 h-screen">
             <Header />
             <div className="overflow-auto bg-white max-w-4xl mx-auto rounded-md p-4 sm:p-6 lg:p-8">
+            EZ Budget Manager
                 <section aria-labelledby="quick-links-title">
-                    <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+                    <div className="divide-y divide-gray-200 mt-2 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
                         <h2 className="sr-only" id="quick-links-title">
                             Quick links
                         </h2>
+                        
                         {actions.map((action, actionIdx) => (
                             <div
                                 key={action.name}
